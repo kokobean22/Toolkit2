@@ -115,7 +115,6 @@ void mousePressed()
      {
          if(currExalt == exaltArrows[0].low) {currExalt = exaltArrows[0].high;}
          else {currExalt--;}
-         
          //Adjust the Caste numbers based on new Exalt Type
          switch(currExalt)
          {
@@ -157,6 +156,7 @@ void mousePressed()
             break;
          }//end switch
          
+
          //Edit the Caste Number
          currCaste = casteArrows[0].low;
          
@@ -168,7 +168,6 @@ void mousePressed()
      {
          if(currExalt == exaltArrows[1].high) {currExalt = exaltArrows[1].low;}
          else {currExalt++;}
-         
          //Adjust the Caste numbers based on new Exalt Type
          switch(currExalt)
          {
