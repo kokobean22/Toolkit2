@@ -1,7 +1,7 @@
 class StatPoint
 {
-  int x,y;
-  boolean taken;
+  int x,y, favored;
+  boolean taken, favorDot, canBeCaste;
   public StatPoint(int nx, int ny, boolean nTaken)
   {
     x = nx;

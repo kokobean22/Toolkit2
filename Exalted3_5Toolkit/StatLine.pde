@@ -4,6 +4,7 @@ class StatLine
   String name;
   int x, y, numTaken, minDots, maxDots = 0;
   Type type;
+  Boolean potentialCaste, caste, favored = false;
   StatLine(int nx, int ny, Type nType, String nName, int nMinDots)
   {
     x = nx; y = ny;
@@ -11,14 +12,15 @@ class StatLine
     minDots = nMinDots;
     dots = new StatPoint[10];
     name = nName;
-    
+    if(type == Type.WILLPOWER) maxDots = 10;
+    else if(essence < 5) maxDots = 5;
+    else maxDots= essence;
     for(int i = 0; i < 10; i++)
     {
       if (i < minDots) dots[i] = new StatPoint(x + i*27, y, true);
       else dots[i]= new StatPoint(x + i*27, y, false);
       if (dots[i].taken) numTaken++;
-    }
-    
+    }    
   }
   void mousePressed()
   {
@@ -33,7 +35,7 @@ class StatLine
           break;
         }
       }
-      if(dotClicked != -1)
+      if(dotClicked != -1 && dotClicked <= maxDots)
       {
         if(!dots[dotClicked].taken)
         {
@@ -60,9 +62,16 @@ class StatLine
     textSize(15);
     text(name, x - 125, y);
     text(numTaken, x + 260, y);
-    for(int i = 0; i < 10; i++)
+    for(int i = 0; i < maxDots; i++)
     {
       dots[i].draw();
     }
+  }
+  
+  void UpdateMaxDots()
+  {
+    if(type == Type.WILLPOWER) maxDots = 10;
+    else if(essence < 5) maxDots = 5;
+    else maxDots= essence;
   }
 }

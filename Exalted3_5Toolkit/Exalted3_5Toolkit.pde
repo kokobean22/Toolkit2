@@ -48,6 +48,8 @@ Arrows[] casteArrows;
 
 PImage bg;
 
+int essence = 1;
+
 void setup()
 {
   textAlign(CENTER);
@@ -58,6 +60,7 @@ void setup()
   setupglobalTexts();
   page = Page.ATTRIBUTES;
   bg = loadImage("Images/gold_lightning4.jpg");
+  essence = attributes[9].numTaken;
 }
 
 void draw()
@@ -280,6 +283,34 @@ void setupAttributes()
     casteArrows = new Arrows[2];
     casteArrows[0] = new Arrows("left", casteType.x-30, 500, 0, 4);
     casteArrows[1] = new Arrows("right", casteType.x+casteType.textWidth+5, 500, 0, 4);
+    
+    if(currExalt ==1) 
+    {
+      switch (currCaste)
+      {
+        case 5:
+          attributes[0].potentialCaste = true; 
+          attributes[1].potentialCaste = true; 
+          attributes[2].potentialCaste = true; 
+          attributes[5].potentialCaste = true; 
+          attributes[8].potentialCaste = true; 
+          break;
+        case 6:
+          attributes[3].potentialCaste = true; 
+          attributes[4].potentialCaste = true; 
+          attributes[5].potentialCaste = true; 
+          attributes[2].potentialCaste = true; 
+          attributes[6].potentialCaste = true; 
+          break;
+        case 7:
+          attributes[6].potentialCaste = true; 
+          attributes[7].potentialCaste = true; 
+          attributes[8].potentialCaste = true; 
+          attributes[1].potentialCaste = true; 
+          attributes[4].potentialCaste = true; 
+          break;
+      }
+    }
 }
 
 void setupAbilities()
