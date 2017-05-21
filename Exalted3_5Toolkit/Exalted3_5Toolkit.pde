@@ -1,3 +1,6 @@
+import controlP5.*;
+ControlP5 cp5 = new ControlP5(this);
+
 public enum Type 
 {
   ATTRIBUTE, ABILITY, WILLPOWER, ESSENCE
@@ -45,6 +48,8 @@ int currCaste = 0;
 
 Arrows[] exaltArrows;
 Arrows[] casteArrows;
+
+DropdownList merits;
 
 PImage bg;
 
@@ -115,6 +120,7 @@ void mousePressed()
      {
          if(currExalt == exaltArrows[0].low) {currExalt = exaltArrows[0].high;}
          else {currExalt--;}
+         
          //Adjust the Caste numbers based on new Exalt Type
          switch(currExalt)
          {
@@ -156,7 +162,6 @@ void mousePressed()
             break;
          }//end switch
          
-
          //Edit the Caste Number
          currCaste = casteArrows[0].low;
          
@@ -168,6 +173,7 @@ void mousePressed()
      {
          if(currExalt == exaltArrows[1].high) {currExalt = exaltArrows[1].low;}
          else {currExalt++;}
+         
          //Adjust the Caste numbers based on new Exalt Type
          switch(currExalt)
          {
@@ -311,6 +317,16 @@ void setupAbilities()
     abilities[23] = new StatLine(400, 675, Type.ABILITY, "Resistance", 0);
     abilities[24] = new StatLine(400, 700, Type.ABILITY, "Survival", 0);
     
+}
+
+void setupMerits()
+{
+  //Show a text box the user can edit
+  //Show a button the user can press to add another text box
+  //When working with Merits:
+  ////Have user type in merit
+  ////Check against XML file of merits
+  ////If multiple costs, show dots?
 }
 
 void setupglobalTexts()

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<merits>
+	<merit>
+		<name>Legendary Attribute</name>
+		<cost>4</cost>
+		<description>+1 to one attribute</description>
+	</merit>
+	<merit>
+		<name>Contacts</name>
+		<cost>1</cost>
+		<cost>3</cost>
+		<cost>4</cost>
+		<description>Friends in High/Low Places</description>
+	</merit>
+</merits>

@@ -1,5 +1,5 @@
 //KAM - 5/20/2017
-//This class creates simple arrow buttons that increase or decrease a given Enum value
+//This class creates simple arrow buttons that increase or decrease a given value
 class Arrows
 {
   boolean isLeft = false;  //For drawing left vs Right arrows (Right arrow default)

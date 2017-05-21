@@ -4,6 +4,7 @@ class StatLine
   String name;
   int x, y, numTaken, minDots, maxDots = 0;
   Type type;
+  
   StatLine(int nx, int ny, Type nType, String nName, int nMinDots)
   {
     x = nx; y = ny;
@@ -20,6 +21,7 @@ class StatLine
     }
     
   }
+  
   void mousePressed()
   {
     if(type != Type.ESSENCE)
@@ -49,11 +51,12 @@ class StatLine
           {
              dots[i].taken = true; 
              numTaken = dotClicked +1;
-          }
-        }
-      }
-    }
-  }
+          }//end for
+        }//end if(dots.taken)
+      }//end if(dotClicked)
+    }//end if(type)
+  }//end mousePressed
+  
   void draw()
   {
     fill(0);
@@ -64,5 +67,5 @@ class StatLine
     {
       dots[i].draw();
     }
-  }
-}
+  }//end draw
+}//end class
