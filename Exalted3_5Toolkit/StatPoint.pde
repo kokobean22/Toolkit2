@@ -1,7 +1,7 @@
 class StatPoint
 {
   int x,y, favored;
-  boolean taken, favorDot, canBeCaste;
+  boolean taken, favorDot, canBeCaste, isCaste, isSupernal, isFavored;
   public StatPoint(int nx, int ny, boolean nTaken)
   {
     x = nx;
@@ -10,8 +10,12 @@ class StatPoint
   }
   void draw()
   {
-    if (taken)
+    if (taken || isCaste)
       fill(#FFFF4D);
+    else if(isSupernal)
+      fill(#FFFFFF);
+    else if(isFavored)
+      fill(#FF0000);
     else
       fill(0);
     ellipse (x, y, 25, 25);
@@ -21,9 +25,51 @@ class StatPoint
   {
     if(overDot())
     {
-      if(taken)taken = false;
-      else taken = true;
-      return true;
+      if(favorDot)
+      {
+        if(canBeCaste) 
+        {
+          if(isCaste)
+          {
+            isCaste = false;
+            numCastePicked--;
+          }
+          else if(numCastePicked < maxCastePicked)
+          {
+            isCaste = true;
+            numCastePicked++;
+          }
+          else if(numCastePicked == maxCastePicked)
+          {
+            if(isFavored)
+            {
+              isFavored = false;
+              numFavoredPicked--;
+            }
+            else if(numFavoredPicked < maxFavoredPicked)
+            {
+              isFavored = true;
+              numFavoredPicked++;
+            }
+          }
+        }
+        else if(isFavored)
+        {
+          isFavored = false;
+          numFavoredPicked--;
+        }
+        else if(numFavoredPicked < maxFavoredPicked)
+        {
+          isFavored = true;
+          numFavoredPicked++;
+        }
+      }
+      else
+      {
+        if(taken)taken = false;
+        else taken = true;
+        return true;
+      }
     }
     return false;
   }

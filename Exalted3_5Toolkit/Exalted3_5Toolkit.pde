@@ -49,6 +49,11 @@ Arrows[] casteArrows;
 PImage bg;
 
 int essence = 1;
+int numCastePicked = 0;
+int numFavoredPicked = 0;
+Boolean supernalPicked = false;
+int maxCastePicked = 0;
+int maxFavoredPicked = 0;
 
 void setup()
 {
@@ -126,36 +131,48 @@ void mousePressed()
             casteArrows[0].high = 4;
             casteArrows[1].low = 0;
             casteArrows[1].high = 4;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 1: //Lunar
             casteArrows[0].low = 5;
             casteArrows[0].high = 7;
             casteArrows[1].low = 5;
             casteArrows[1].high = 7;
+            maxCastePicked = 3;
+            maxFavoredPicked = 1;
             break;
           case 2: //Infernal
             casteArrows[0].low = 8;
             casteArrows[0].high = 12;
             casteArrows[1].low = 8;
             casteArrows[1].high = 12;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 3: //Abyssal
             casteArrows[0].low = 13;
             casteArrows[0].high = 17;
             casteArrows[1].low = 13;
             casteArrows[1].high = 17;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 4: //Sidereal
             casteArrows[0].low = 18;
             casteArrows[0].high = 22;
             casteArrows[1].low = 18;
             casteArrows[1].high = 22;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 5: //Dragonblood
             casteArrows[0].low = 23;
             casteArrows[0].high = 27;
             casteArrows[1].low = 23;
             casteArrows[1].high = 27;
+            maxCastePicked = 6;
+            maxFavoredPicked = 3;
             break;
          }//end switch
          
@@ -179,36 +196,48 @@ void mousePressed()
             casteArrows[0].high = 4;
             casteArrows[1].low = 0;
             casteArrows[1].high = 4;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 1: //Lunar
             casteArrows[0].low = 5;
             casteArrows[0].high = 7;
             casteArrows[1].low = 5;
             casteArrows[1].high = 7;
+            maxCastePicked = 3;
+            maxFavoredPicked = 1;
             break;
           case 2: //Infernal
             casteArrows[0].low = 8;
             casteArrows[0].high = 12;
             casteArrows[1].low = 8;
             casteArrows[1].high = 12;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 3: //Abyssal
             casteArrows[0].low = 13;
             casteArrows[0].high = 17;
             casteArrows[1].low = 13;
             casteArrows[1].high = 17;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 4: //Sidereal
             casteArrows[0].low = 18;
             casteArrows[0].high = 22;
             casteArrows[1].low = 18;
             casteArrows[1].high = 22;
+            maxCastePicked = 5;
+            maxFavoredPicked = 5;
             break;
           case 5: //Dragonblood
             casteArrows[0].low = 23;
             casteArrows[0].high = 27;
             casteArrows[1].low = 23;
             casteArrows[1].high = 27;
+            maxCastePicked = 6;
+            maxFavoredPicked = 3;
             break;
          }//end switch
          
@@ -235,6 +264,8 @@ void mousePressed()
          
          casteType.text = castes[currCaste];
      }
+     
+     ResetCasteFavored();
     
     for(int i = 0; i < attributes.length; i++)
       attributes[i].mousePressed();
@@ -348,4 +379,48 @@ void setupglobalTexts()
 {
     globalTexts = new TextBox[1];
     globalTexts[0] = new TextBox(200, 25, "Character Name");
+}
+
+void ResetCasteFavored()
+{
+  switch(currExalt)
+  {
+    case 0:
+    {
+      
+    }
+    case 1: 
+    {
+      switch (currCaste)
+      {
+        case 5:
+          attributes[0].potentialCaste = true; 
+          attributes[1].potentialCaste = true; 
+          attributes[2].potentialCaste = true; 
+          attributes[5].potentialCaste = true; 
+          attributes[8].potentialCaste = true; 
+          break;
+        case 6:
+          attributes[3].potentialCaste = true; 
+          attributes[4].potentialCaste = true; 
+          attributes[5].potentialCaste = true; 
+          attributes[2].potentialCaste = true; 
+          attributes[6].potentialCaste = true; 
+          break;
+        case 7:
+          attributes[6].potentialCaste = true; 
+          attributes[7].potentialCaste = true; 
+          attributes[8].potentialCaste = true; 
+          attributes[1].potentialCaste = true; 
+          attributes[4].potentialCaste = true; 
+          break;
+      }
+      break;
+    }
+    case 2:
+    {
+      
+    }
+  }
+      
 }
