@@ -43,7 +43,7 @@ class Arrows
   
   boolean overButton()
   {
-    if (mouseX >= x && mouseX <= x+100 && mouseY >= y && mouseY <= y+50) return true;
+    if (mouseX >= x && mouseX <= x+25 && mouseY >= y && mouseY <= y+30) return true;
     else return false;
   }
 }

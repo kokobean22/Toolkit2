@@ -33,7 +33,7 @@ TextBox casteType;
 String[] exalts = {"   Solar   ", "   Lunar   ", " Infernal  ", "  Abyssal  ", " Sidereal  ", "Dragonblood"};
 String[] castes = {
   "     Dawn    ", "    Zenith   ", "   Twilight  ", "    Night    ", "   Eclipse   ",
-  "  Full Moon ", "Changing Moon", "      No     ",
+  "  Full Moon ", "Changing Moon", "   No Moon   ",
   "Slayer", "Malefactor", "Defiler", "Scourge", "Fiend",
   "Dusk", "Midnight", "Daybreak", "Day", "Moonshadow",
   "Journeys", "Serenity", "Battles", "Secrets", "Endings",
