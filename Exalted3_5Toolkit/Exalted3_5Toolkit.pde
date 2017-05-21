@@ -34,10 +34,10 @@ String[] exalts = {"   Solar   ", "   Lunar   ", " Infernal  ", "  Abyssal  ", "
 String[] castes = {
   "     Dawn    ", "    Zenith   ", "   Twilight  ", "    Night    ", "   Eclipse   ",
   "  Full Moon  ", "Changing Moon", "   No Moon   ",
-  "    Slayer   ", " Malefactor  ", "   Defiler   ", "   Scourge   ", "    Fiend    ",
-  "    Dusk     ", "  Midnight   ", "   Daybreak  ", "     Day     ", "  Moonshadow ",
-  "  Journeys   ", "   Serenity  ", "   Battles   ", "   Secrets   ", "   Endings   ",
-  "     Air     ", "     Fire    ", "    Water    ", "     Wood    ", "    Earth    "
+  "    Slayer   ", "  Malefactor ", "   Defiler   ", "   Scourge   ", "    Fiend    ",
+  "    Dusk     ", "   Midnight  ", "  Daybreak   ", "     Day     ", "  Moonshadow ",
+  "   Journeys  ", "   Serenity  ", "   Battles   ", "   Secrets   ", "   Endings   ",
+  "     Air     ", "    Fire     ", "    Water    ", "    Wood     ", "    Earth    "
 };
 
 int currExalt = 0;
@@ -115,7 +115,6 @@ void mousePressed()
      {
          if(currExalt == exaltArrows[0].low) {currExalt = exaltArrows[0].high;}
          else {currExalt--;}
-         
          //Adjust the Caste numbers based on new Exalt Type
          switch(currExalt)
          {
@@ -157,6 +156,10 @@ void mousePressed()
             break;
          }//end switch
          
+
+         //Edit the Caste Number
+         currCaste = casteArrows[0].low;
+         
          //Switch Exalt Type and Caste Names
          exaltType.text = exalts[currExalt];
          casteType.text = castes[casteArrows[0].low];
@@ -165,7 +168,6 @@ void mousePressed()
      {
          if(currExalt == exaltArrows[1].high) {currExalt = exaltArrows[1].low;}
          else {currExalt++;}
-         
          //Adjust the Caste numbers based on new Exalt Type
          switch(currExalt)
          {
